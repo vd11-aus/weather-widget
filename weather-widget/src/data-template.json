@@ -1,0 +1,91 @@
+{
+    "latitude": 0,
+    "longitude": 0,
+    "generationtime_ms": 0,
+    "utc_offset_seconds": 0,
+    "timezone": "",
+    "timezone_abbreviation": "",
+    "elevation": 0.0,
+    "current_weather": {
+        "temperature": 0.0,
+        "windspeed": 0.0,
+        "winddirection": 0.0,
+        "weathercode": 0,
+        "is_day": 1,
+        "time": ""
+    },
+    "daily_units": {
+        "time": "",
+        "temperature_2m_max": "",
+        "temperature_2m_min": "",
+        "sunrise": "",
+        "sunset": "",
+        "uv_index_max": "",
+        "precipitation_probability_max": ""
+    },
+    "daily": {
+        "time": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "temperature_2m_max": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "temperature_2m_min": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "sunrise": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "sunset": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "uv_index_max": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "precipitation_probability_max": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    }
+}
