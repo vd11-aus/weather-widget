@@ -1,11 +1,39 @@
-.main-container {
+.WeatherCard--Main-Container {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 
-    border: 4px solid;
+    width: 125px;
+    height: 200px;
+
+    background-color: white;
+    border: 2px solid;
     border-radius: 16px;
     border-color: black;
+}
+
+.WeatherCard--Main-Container:hover {
+    transition: .15s;
+    transition-timing-function: ease-in-out;
+    scale: 1.1;
+}
+
+.WeatherCard--Temperature-Container {
+    display: flex;
+    flex-direction: row;
+}
+
+.WeatherCard--WeatherIcon {
+    width: 64px;
+    height: 64px;
+}
+
+.WeatherCard--Temperature-Max {
+    color: black;
+}
+
+.WeatherCard--Temperature-Min {
+    color: grey;
 }
