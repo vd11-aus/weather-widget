@@ -9,7 +9,6 @@ function WeatherCurrent(props) {
     } else if (props.unit=="imperial") {
         finalData = props.imperial;
     }
-    console.log(finalData);
     return (
         <Box sx={{display:"flex", flexDirection:"row", alignItems:"center", justifyContent:"space-between", width:"100%", height:"200px"}}>
             <img sx={{width:"128px", height:"128px"}} />
