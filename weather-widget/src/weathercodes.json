@@ -1,142 +1,114 @@
 {
     "0": {
         "type": "Clear Sky",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/c01d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/c01n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/c01d.png"
     },
     "1": {
         "type": "Mainly Clear",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/c02d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/c02n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/c02d.png"
     },
     "2": {
         "type": "Partly Cloudy",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/c03d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/c03n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/c03d.png"
     },
     "3": {
         "type": "Overcast",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/c04d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/c04n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/c04d.png"
     },
     "45": {
         "type": "Fog",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/c05d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/c05n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/a05d.png"
     },
     "48": {
         "type": "Depositing Rime Fog",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/c06d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/c06n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/a06d.png"
     },
     "51": {
         "type": "Drizzle - Light",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/d01d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/d01n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/d01d.png"
     },
     "53": {
         "type": "Drizzle - Moderate",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/d02d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/d02n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/d02d.png"
     },
     "55": {
         "type": "Drizzle - Dense",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/d03d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/d03n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/d03d.png"
     },
     "56": {
         "type": "Freezing Drizzle - Light",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/d02d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/d02n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/d02d.png"
     },
     "57": {
         "type": "Freezing Drizzle - Dense",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/d03d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/d03n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/d03d.png"
     },
     "61": {
         "type": "Rain - Slight",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/r01d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/r01n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/r01d.png"
     },
     "63": {
         "type": "Rain - Moderate",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/r02d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/r02n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/r02d.png"
     },
     "65": {
         "type": "Rain - Heavy",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/r03d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/r03n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/r03d.png"
     },
     "66": {
         "type": "Freezing Rain - Light",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/f01d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/f01n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/f01d.png"
     },
     "67": {
         "type": "Freezing Rain - Heavy",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/f01d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/f01n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/f01d.png"
     },
     "71": {
         "type": "Snow Fall - Slight",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/s01d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/s01n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/s01d.png"
     },
     "73": {
         "type": "Snow Fall - Moderate",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/s02d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/s02n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/s02d.png"
     },
     "75": {
         "type": "Snow Fall - Heavy",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/s03d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/s03n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/s03d.png"
     },
     "77": {
         "type": "Snow Grains",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/s04d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/s04n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/s04d.png"
     },
     "80": {
         "type": "Rain Showers - Slight",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/r04d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/r04n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/r04d.png"
     },
     "81": {
         "type": "Rain Showers - Moderate",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/r05d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/r05n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/r05d.png"
     },
     "82": {
         "type": "Rain Showers - Violent",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/r06d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/r06n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/r06d.png"
     },
     "85": {
         "type": "Snow Showers - Slight",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/s01d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/s01n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/s01d.png"
     },
     "86": {
         "type": "Snow Showers - Heavy",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/s02d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/s02n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/s02d.png"
     },
     "95": {
         "type": "Thunderstorm - Slight",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/t01d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/t01n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/t01d.png"
     },
     "96": {
         "type": "Thunderstorm - Moderate",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/t02d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/t02n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/t02d.png"
     },
     "99": {
         "type": "Thunderstorm With Hail",
-        "icon_day": "https://cdn.weatherbit.io/static/img/icons/t05d.png",
-        "icon_night": "https://cdn.weatherbit.io/static/img/icons/t05n.png"
+        "icon": "https://cdn.weatherbit.io/static/img/icons/t05d.png"
     }
 }
