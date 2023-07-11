@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import dataTemplate from "./dataTemplate.json";
+import weatherDataTemplate from "./weatherDataTemplate.json";
+import additionalDataTemplate from "./additionalDataTemplate.json";
 import WeatherCurrentFocus from "./WeatherCurrentFocus";
 import WeatherDayPicker from "./WeatherDayPicker";
 import WeatherHourPicker from "./WeatherHourPicker";
@@ -22,16 +23,19 @@ import {
 import { EditLocation, Update } from "@mui/icons-material";
 
 function Main() {
+    const accessToken = "pk.ea2aed48fdfc7e8a2f384f8b189805f7";
     const [units, setUnits] = React.useState("metric");
     const [latitude, setLatitude] = React.useState(0.0);
     const [longitude, setLongitude] = React.useState(0.0);
     const [locationModal, setLocationModal] = React.useState(false);
     const [lastUpdate, setLastUpdate] = React.useState("None Yet");
     const [geolocationOn, setGeolocationOn] = React.useState(false);
-    const [metricData, setMetricData] = React.useState(dataTemplate);
-    const [imperialData, setImperialData] = React.useState(dataTemplate);
+    const [metricData, setMetricData] = React.useState(weatherDataTemplate);
+    const [imperialData, setImperialData] = React.useState(weatherDataTemplate);
     const [dayPicked, setDayPicked] = React.useState(0);
     const [hourPicked, setHourPicked] = React.useState(0);
+    let searchQuery = React.useRef("");
+    let additionalData = React.useRef(additionalDataTemplate);
 
     useEffect(() => {
         (async () => {
@@ -41,6 +45,8 @@ function Main() {
             let imperialUrl = await fetch(
                 `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,uv_index_max,precipitation_sum,rain_sum,showers_sum,snowfall_sum,precipitation_hours,precipitation_probability_max&current_weather=true&temperature_unit=fahrenheit&windspeed_unit=kn&precipitation_unit=inch&timezone=auto`
             );
+            let additionalDataUrl = await fetch(`https://us1.locationiq.com/v1/reverse?key=${accessToken}&lat=${latitude}&lon=${longitude}&format=json`);
+            additionalData["current"] = await additionalDataUrl.json();
             setMetricData(await metricUrl.json());
             setImperialData(await imperialUrl.json());
             setLastUpdate(new Date(Date.now()).toLocaleString());
@@ -51,11 +57,20 @@ function Main() {
         setUnits(type);
     }
 
+    async function coordsFromAddress() {
+        let latLonUrl = await fetch(`https://us1.locationiq.com/v1/search?key=${accessToken}&q=${searchQuery["current"]}&format=json`);
+        let coords = await latLonUrl.json();
+        try {
+            setLatitude(coords[0]["lat"]);
+            setLongitude(coords[0]["lon"]);
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
     function updateLocation() {
         if (!geolocationOn) {
-            // setLatitude(Number.parseFloat(document.getElementById("latitude-input").value));
-            // setLongitude(Number.parseFloat(document.getElementById("longitude-input").value));
-            setLastUpdate(new Date(Date.now()).toLocaleString());
+            coordsFromAddress();
         } else {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
@@ -99,7 +114,7 @@ function Main() {
                             justifyContent: "left",
                         }}
                     >
-                        <h1>Rooty Hill</h1>
+                        <h1>{additionalData["current"]["display_name"]}</h1>
                         <IconButton onClick={() => setLocationModal(!locationModal)}>
                             <EditLocation />
                         </IconButton>
@@ -116,7 +131,7 @@ function Main() {
                         <IconButton onClick={() => setLastUpdate(new Date(Date.now()).toLocaleString())}>
                             <Update />
                         </IconButton>
-                        <Select value={units} onChange={(e) => changeUnits(e.target.value)}>
+                        <Select value={units} onChange={(e) => changeUnits(e["target"]["checked"])}>
                             <MenuItem value="metric">Metric</MenuItem>
                             <MenuItem value="imperial">Imperial</MenuItem>
                         </Select>
@@ -129,10 +144,17 @@ function Main() {
                     <DialogTitle>Change Location</DialogTitle>
                     <DialogContent>
                         <DialogContentText>Hello World.</DialogContentText>
-                        <TextField variant="filled" label="Location" disabled={geolocationOn} />
+                        <TextField
+                            variant="filled"
+                            label="Location"
+                            disabled={geolocationOn}
+                            defaultValue={searchQuery["current"]}
+                            onChange={(e) => (searchQuery["current"] = e["target"]["value"])}
+                        />
                     </DialogContent>
                     <DialogActions>
-                        <Switch checked={geolocationOn} value={geolocationOn} onChange={(e) => setGeolocationOn(e.target.checked)} />
+                        <label>Use Current Location</label>
+                        <Switch checked={geolocationOn} value={geolocationOn} onChange={(e) => setGeolocationOn(e["target"]["checked"])} />
                         <Button onClick={() => setLocationModal(false)}>Discard</Button>
                         <Button onClick={() => updateLocation()} autoFocus>
                             Confirm

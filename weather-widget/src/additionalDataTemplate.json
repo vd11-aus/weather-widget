@@ -1,0 +1,18 @@
+{
+    "place_id": "45421315",
+    "licence": "https:\/\/locationiq.com\/attribution",
+    "osm_type": "node",
+    "osm_id": "3815077900",
+    "lat": "-5e-07",
+    "lon": "5e-07",
+    "display_name": "Soul Buoy",
+    "address": {
+        "monitoring_station": "Soul Buoy"
+    },
+    "boundingbox": [
+        "-5.05E-5",
+        "4.95E-5",
+        "-4.95E-5",
+        "5.05E-5"
+    ]
+}

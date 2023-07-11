@@ -48,7 +48,7 @@ function WeatherDayPicker(props) {
                         width="60px"
                         src={weathercodes[finalData["daily"]["weathercode"][dayInteger]]["icon"]}
                     />
-                    <Box sx={{ display: "flex", flexDirection: "row" }}>
+                    <Box sx={{ display: "flex", flexDirection: "column" }}>
                         <h5>{finalData["daily"]["temperature_2m_max"][dayInteger]}</h5>
                         <Box width="10px" />
                         <h5>{finalData["daily"]["temperature_2m_min"][dayInteger]}</h5>
