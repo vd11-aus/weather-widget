@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import weatherDataTemplate from "./weatherDataTemplate.json";
-import additionalDataTemplate from "./additionalDataTemplate.json";
+import locationInfoTemplate from "./locationInfo.json";
 import WeatherCurrentFocus from "./WeatherCurrentFocus";
 import WeatherDayPicker from "./WeatherDayPicker";
 import WeatherHourPicker from "./WeatherHourPicker";
@@ -24,7 +24,7 @@ import { EditLocation, Update } from "@mui/icons-material";
 
 function Main() {
     const accessToken = "pk.ea2aed48fdfc7e8a2f384f8b189805f7";
-    const [units, setUnits] = React.useState("metric");
+    const [units, setUnits] = React.useState("imperial");
     const [latitude, setLatitude] = React.useState(0.0);
     const [longitude, setLongitude] = React.useState(0.0);
     const [locationModal, setLocationModal] = React.useState(false);
@@ -34,8 +34,9 @@ function Main() {
     const [imperialData, setImperialData] = React.useState(weatherDataTemplate);
     const [dayPicked, setDayPicked] = React.useState(0);
     const [hourPicked, setHourPicked] = React.useState(0);
+    let weatherData = React.useRef(weatherDataTemplate);
     let searchQuery = React.useRef("");
-    let additionalData = React.useRef(additionalDataTemplate);
+    let locationInfo = React.useRef(locationInfoTemplate);
 
     useEffect(() => {
         (async () => {
@@ -45,17 +46,18 @@ function Main() {
             let imperialUrl = await fetch(
                 `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,uv_index_max,precipitation_sum,rain_sum,showers_sum,snowfall_sum,precipitation_hours,precipitation_probability_max&current_weather=true&temperature_unit=fahrenheit&windspeed_unit=kn&precipitation_unit=inch&timezone=auto`
             );
-            let additionalDataUrl = await fetch(`https://us1.locationiq.com/v1/reverse?key=${accessToken}&lat=${latitude}&lon=${longitude}&format=json`);
-            additionalData["current"] = await additionalDataUrl.json();
+            let locationInfoUrl = await fetch(`https://us1.locationiq.com/v1/reverse?key=${accessToken}&lat=${latitude}&lon=${longitude}&format=json`);
+            locationInfo["current"] = await locationInfoUrl.json();
             setMetricData(await metricUrl.json());
             setImperialData(await imperialUrl.json());
+            if (units == "metric") {
+                weatherData["current"] = metricData;
+            } else if (units == "imperial") {
+                weatherData["current"] = imperialData;
+            }
             setLastUpdate(new Date(Date.now()).toLocaleString());
         })();
     }, [units, lastUpdate, latitude, longitude]);
-
-    function changeUnits(type) {
-        setUnits(type);
-    }
 
     async function coordsFromAddress() {
         let latLonUrl = await fetch(`https://us1.locationiq.com/v1/search?key=${accessToken}&q=${searchQuery["current"]}&format=json`);
@@ -114,7 +116,7 @@ function Main() {
                             justifyContent: "left",
                         }}
                     >
-                        <h1>{additionalData["current"]["display_name"]}</h1>
+                        <h1>{locationInfo["current"]["display_name"]}</h1>
                         <IconButton onClick={() => setLocationModal(!locationModal)}>
                             <EditLocation />
                         </IconButton>
@@ -131,15 +133,15 @@ function Main() {
                         <IconButton onClick={() => setLastUpdate(new Date(Date.now()).toLocaleString())}>
                             <Update />
                         </IconButton>
-                        <Select value={units} onChange={(e) => changeUnits(e["target"]["checked"])}>
+                        <Select value={units} onChange={(e) => setUnits(e["target"]["value"])}>
                             <MenuItem value="metric">Metric</MenuItem>
                             <MenuItem value="imperial">Imperial</MenuItem>
                         </Select>
                     </Box>
                 </Box>
-                <WeatherCurrentFocus unit={units} metric={metricData} imperial={imperialData} currentDay={dayPicked} currentHour={hourPicked} />
+                <WeatherCurrentFocus unit={units} data={weatherData["current"]} currentDay={dayPicked} currentHour={hourPicked} />
                 <WeatherHourPicker daySelected={dayPicked} hourSelected={hourPicked} setHourSelected={setHourPicked} />
-                <WeatherDayPicker unit={units} metric={metricData} imperial={imperialData} setDaySelected={setDayPicked} />
+                <WeatherDayPicker unit={units} data={weatherData["current"]} setDaySelected={setDayPicked} />
                 <Dialog open={locationModal} onClose={() => setLocationModal(false)}>
                     <DialogTitle>Change Location</DialogTitle>
                     <DialogContent>
